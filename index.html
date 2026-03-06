@@ -4,10 +4,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dice Roller</title>
-  <link rel="stylesheet" href="style.css">
-
-
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/png" href="assets/icons/favicon.png">
+  <title>Interactive 3D Dice Roller</title>
+  <meta name="title" content="Interactive 3D Dice Roller">
+  <meta name="description"
+    content="A fast, mobile-friendly 3D dice roller with haptic feedback and realistic sound effects. Perfect for board games and tabletop RPGs.">
+  <meta name="keywords"
+    content="dice roller, online dice, 3d dice, board game tools, mobile dice app, random number generator">
+  <meta name="author" content="ZARABG MOHAED ELMEHDI">
+  <meta name="robots" content="index, follow">
 </head>
 
 <body>
@@ -24,56 +30,56 @@
     <audio id="audio" src="dice.mp3"></audio>
 
   </div>
-<div class="footer-bar">
-    <p>Created by <br> <strong>ZARBAG MOHAMED ELMEDHI</strong> <br>  2026</p>
-</div>
+  <div class="footer-bar">
+    <p>Created by <br> <strong>ZARBAG MOHAMED ELMEDHI</strong> <br> 2026</p>
+  </div>
   <script>
 
-function rollDice() {
-    const dices = document.querySelectorAll(".dice");
-    const button = document.querySelector("button");
-    const faces = ["⚀", "⚁", "⚂", "⚃", "⚄", "⚅"];
-    
-    // 1. Start Sound & Disable Button briefly
-    diceplay();
-    button.disabled = true;
+    function rollDice() {
+      const dices = document.querySelectorAll(".dice");
+      const button = document.querySelector("button");
+      const faces = ["⚀", "⚁", "⚂", "⚃", "⚄", "⚅"];
 
-    // 2. Start the "Blurry Roll" Visuals
-    dices.forEach(dice => {
+      // 1. Start Sound & Disable Button briefly
+      diceplay();
+      button.disabled = true;
+
+      // 2. Start the "Blurry Roll" Visuals
+      dices.forEach(dice => {
         dice.classList.remove("bump"); // Clear old animations
         dice.classList.add("rolling");
-        
+
         // Interval to flicker faces rapidly
         const flicker = setInterval(() => {
-            const tempRandom = Math.floor(Math.random() * 6);
-            dice.textContent = faces[tempRandom];
+          const tempRandom = Math.floor(Math.random() * 6);
+          dice.textContent = faces[tempRandom];
         }, 80);
 
         // 3. The "Landing" (After 1 second)
         setTimeout(() => {
-            clearInterval(flicker); // Stop flickering
-            
-            const finalResult = Math.floor(Math.random() * 6);
-            dice.textContent = faces[finalResult];
-            
-            dice.classList.remove("rolling");
-            dice.classList.add("bump"); // Add landing pop
-            
-            button.disabled = false;
-            document.activeElement.blur();
-            
-            // Haptic Feedback (Vibrate phone for 50ms)
-            if (navigator.vibrate) navigator.vibrate(50);
-            
-        }, 1000);
-    });
-}
+          clearInterval(flicker); // Stop flickering
 
-function diceplay() {
-    const audio = document.getElementById("audio");
-    audio.currentTime = 0; // Restart sound if clicked rapidly
-    audio.play().catch(() => {}); // Catch block prevents errors if browser blocks autoplay
-}
+          const finalResult = Math.floor(Math.random() * 6);
+          dice.textContent = faces[finalResult];
+
+          dice.classList.remove("rolling");
+          dice.classList.add("bump"); // Add landing pop
+
+          button.disabled = false;
+          document.activeElement.blur();
+
+          // Haptic Feedback (Vibrate phone for 50ms)
+          if (navigator.vibrate) navigator.vibrate(50);
+
+        }, 1000);
+      });
+    }
+
+    function diceplay() {
+      const audio = document.getElementById("audio");
+      audio.currentTime = 0; // Restart sound if clicked rapidly
+      audio.play().catch(() => { }); // Catch block prevents errors if browser blocks autoplay
+    }
 
   </script>
 
