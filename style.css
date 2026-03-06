@@ -1,0 +1,149 @@
+:root {
+    --primary: #FF3D00;
+    --primary-hover: #D83400;
+    --bg-dark: #0f0f0f;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg-dark);
+    /* Subtle radial gradient for depth */
+    background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100dvh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    background: #ffffff;
+    padding: 2.5rem 1.5rem;
+    border-radius: 32px;
+    /* Smoother, modern corners */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin: 0 0 1.5rem 0;
+    color: #333;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.dices {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin: 2rem 0;
+    perspective: 1000px;
+    /* Prepares area for 3D movements */
+}
+
+.dice {
+    font-size: 100px;
+    /* Larger for better visibility */
+    color: #222;
+    line-height: 1;
+    display: inline-block;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* The Advanced Roll Animation */
+.roll {
+    animation: professional-roll 0.8s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+
+@keyframes professional-roll {
+    0% {
+        transform: scale(1) rotate(0deg);
+        filter: blur(0px);
+    }
+
+    30% {
+        transform: scale(1.4) rotate(120deg);
+        filter: blur(2px);
+    }
+
+    60% {
+        transform: scale(0.8) rotate(240deg);
+        filter: blur(4px);
+    }
+
+    100% {
+        transform: scale(1) rotate(360deg);
+        filter: blur(0px);
+    }
+}
+
+button {
+    width: 100%;
+    /* Easy thumb-tap on mobile */
+    max-width: 280px;
+    padding: 16px 32px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    background: var(--primary);
+    color: white;
+    transition: all 0.2s ease;
+    box-shadow: 0 8px 0 #a32803;
+    /* 3D button effect */
+    position: relative;
+    top: 0;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:active {
+    top: 4px;
+    /* Sinks button when pressed */
+    box-shadow: 0 4px 0 #a32803;
+    background: var(--primary-hover);
+}
+
+button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.footer-bar {
+    padding: 1rem;
+    border-top: 1px solid #eee;
+    width: 100%;
+    color: white;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+}
+
+.footer-bar p {
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+.footer-bar strong {
+    color: #555;
+    /* Makes your name slightly darker/bolder */
+    font-weight: 600;
+}
