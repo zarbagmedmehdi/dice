@@ -1,100 +1,200 @@
 :root {
     --primary: #FF3D00;
-    --primary-hover: #D83400;
+        --primary-hover: #af2900;
+
+    --speed-color: #00E676;
+    --ramadan-color: #4A148C;
     --bg-dark: #0f0f0f;
 }
 
 body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     background: var(--bg-dark);
-    /* Subtle radial gradient for depth */
-    background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100dvh;
     margin: 0;
-    padding: 20px;
+    padding: 15px;
     box-sizing: border-box;
-    overflow: hidden;
 }
 
 .container {
-    text-align: center;
-    background: #ffffff;
-    padding: 2.5rem 1.5rem;
+    background: white;
+    padding: 2rem 1.5rem;
     border-radius: 32px;
-    /* Smoother, modern corners */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
     width: 100%;
     max-width: 400px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
-h1 {
-    font-size: 2.2rem;
-    margin: 0 0 1.5rem 0;
-    color: #333;
-    font-weight: 800;
-    letter-spacing: -1px;
-}
-
-.dices {
+/* Header & Footer */
+.header-bar,
+.footer-bar {
+    width: 100%;
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #999;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+.footer-bar {
+    border-bottom: none;
+    border-top: 1px solid #eee;
+    padding: 1rem;
     justify-content: center;
+    position: absolute;
+    bottom: 0;
+    font-size: 1rem;
+
+}
+
+/* Tab Navigation */
+.tab-nav {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    background: #f0f0f0;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.tab-btn {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: transparent;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.tab-btn.active {
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Visibility Logic */
+.app-section {
+    display: none;
+    min-height: 250px;
+    flex-direction: column;
     align-items: center;
-    gap: 25px;
-    margin: 2rem 0;
-    perspective: 1000px;
-    /* Prepares area for 3D movements */
+    justify-content: center;
 }
 
+.app-section.active {
+    display: flex;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* App Specific Styles */
 .dice {
-    font-size: 100px;
-    /* Larger for better visibility */
-    color: #222;
-    line-height: 1;
+    font-size: 80px;
+    margin: 20px;
     display: inline-block;
-    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
-    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* The Advanced Roll Animation */
-.roll {
-    animation: professional-roll 0.8s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+.gauge {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 20px;
+    color: var(--speed-color);
 }
 
-@keyframes professional-roll {
-    0% {
-        transform: scale(1) rotate(0deg);
-        filter: blur(0px);
-    }
+.status-icon {
+    font-size: 4rem;
+    margin: 10px;
+}
 
-    30% {
-        transform: scale(1.4) rotate(120deg);
-        filter: blur(2px);
-    }
+.countdown {
+    display: flex;
+    gap: 20px;
+    margin: 15px 0;
+}
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 12px; /* Slightly tighter gap for 4 items */
+    margin: 15px 0;
+    width: 100%;
+}
 
-    60% {
-        transform: scale(0.8) rotate(240deg);
-        filter: blur(4px);
-    }
+.time-unit {
+    flex: 1;
+    min-width: 60px;
+}
 
-    100% {
-        transform: scale(1) rotate(360deg);
-        filter: blur(0px);
-    }
+.time-unit span {
+    font-size: 1.8rem; /* Slightly smaller to prevent overlapping */
+    font-weight: 800;
+    color: var(--ramadan-color);
+    font-variant-numeric: tabular-nums; /* Prevents numbers from jumping */
+}
+
+.time-unit p {
+    margin: 5px 0 0;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #888;
+}
+
+.time-unit {
+    flex: 1;
+    min-width: 60px;
+}
+
+.time-unit span {
+    font-size: 1.8rem; /* Slightly smaller to prevent overlapping */
+    font-weight: 800;
+    color: var(--ramadan-color);
+    font-variant-numeric: tabular-nums; /* Prevents numbers from jumping */
+}
+
+.time-unit p {
+    margin: 5px 0 0;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #888;
+}
+
+.action-btn {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 16px;
+    background: var(--primary);
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 5px 0 #a32803;
+}
+
+.action-btn:active {
+    transform: translateY(4px);
+    box-shadow: none;
 }
 
 button {
     width: 100%;
-    /* Easy thumb-tap on mobile */
     max-width: 280px;
     padding: 16px 32px;
     border: none;
@@ -104,46 +204,15 @@ button {
     cursor: pointer;
     background: var(--primary);
     color: white;
-    transition: all 0.2s ease;
+    transition: all 0.2s 
+ease;
     box-shadow: 0 8px 0 #a32803;
-    /* 3D button effect */
     position: relative;
     top: 0;
     outline: none;
     -webkit-tap-highlight-color: transparent;
 }
-
-button:active {
-    top: 4px;
-    /* Sinks button when pressed */
-    box-shadow: 0 4px 0 #a32803;
-    background: var(--primary-hover);
-}
-
 button:hover {
     background: var(--primary-hover);
     transform: translateY(-2px);
-}
-
-.footer-bar {
-    padding: 1rem;
-    border-top: 1px solid #eee;
-    width: 100%;
-    color: white;
-    font-size: 1rem;
-    line-height: 1.25rem;
-    position: absolute;
-    bottom: 0;
-    text-align: center;
-}
-
-.footer-bar p {
-    margin: 0;
-    letter-spacing: 0.5px;
-}
-
-.footer-bar strong {
-    color: #555;
-    /* Makes your name slightly darker/bolder */
-    font-weight: 600;
 }

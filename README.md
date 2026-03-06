@@ -1,19 +1,24 @@
-🎲 Dice Roller Pro
-A high-performance, mobile-first 3D dice rolling application built with vanilla JavaScript, CSS3 animations, and haptic feedback.
+📖 حصن المسلم - Adhkar Web App
+A lightweight, mobile-responsive web application for reading and tracking daily Islamic Adhkar (supplications). This project uses a custom JSON dataset containing 132 categories of prayers with built-in repetition counters and audio support.
 
 ✨ Features
-📱 Mobile-First Design: Fully responsive glassmorphism UI optimized for iOS and Android.
+132 Categories: Extensive library of Adhkar from "Hisn al-Muslim".
 
-🎬 Pro Animations: Uses "Squash and Stretch" principles and motion blur for a realistic 3D feel.
+Mobile-First Design: Responsive "Drawer" navigation for seamless use on smartphones.
 
-🔊 Audio Feedback: High-quality dice-rolling sound effects.
+Repetition Counter: Interactive buttons that count down as you recite (e.g., 3 → 2 → 1 → ✓).
 
-📳 Haptic Integration: Vibrates your mobile device when the dice "land" for a tactile experience.
+Audio Support: Listen to the correct pronunciation for individual supplications.
 
-⚡ Lightweight: Zero dependencies. No frameworks. Just pure, fast code.
+Search Functionality: Quickly filter through categories to find specific prayers.
 
-🚀 Live Demo
-[Insert your GitHub Pages or Vercel link here]
+Optimized Typography: High-readability Arabic fonts (Amiri & Tajawal) with custom line spacing for clear recitation.
 
-🛠️ Installation
-Getting started is as simple as opening a file.
+🛠️ Built With
+HTML5 / CSS3
+
+Tailwind CSS: For modern, utility-first styling.
+
+JavaScript (ES6+): For dynamic data rendering and counter logic.
+
+JSON Data: Structured supplimentary data loaded via an external script.
